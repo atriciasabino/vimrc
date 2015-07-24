@@ -165,4 +165,14 @@ Bundle 'marijnh/tern_for_vim'
 "
 Bundle 'hail2u/vim-css3-syntax'
 
+Bundle 'severin-lemaignan/vim-minimap'
+
+Bundle 'Valloric/MatchTagAlways'
+
+:inoremap <lt>/ </<C-X><C-O>
+:imap <C-Space> <C-X><C-O>
+
+Plugin 'mattn/emmet-vim'
+let g:user_emmet_leader_key='ee'
+
 set term=xterm-256color
