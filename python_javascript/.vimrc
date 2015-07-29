@@ -225,6 +225,11 @@ set smartcase     " ignore case if search pattern is all lowercase,case-sensitiv
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 
+"to stop indenting when pasting with the mouse
+set pastetoggle=<f5>
+
+filetype indent on
+
 " enable syntax highlighting by forcing reloading of the filetype
 syntax enable
 filetype plugin on
