@@ -164,6 +164,12 @@ noremap <F3> :Autoformat<CR>
 
 " use ,w ,b ,e to navigate CamelCase and underscore identifiers
 Bundle 'bkad/CamelCaseMotion'
+map <silent> b <Plug>CamelCaseMotion_w
+map <silent> w <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
 
 " Programmer Color scheme
 Bundle 'pw'
