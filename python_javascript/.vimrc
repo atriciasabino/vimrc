@@ -1,13 +1,21 @@
-set nocompatible
+" Ubuntu 14.04.2 LTS
+" VIM - Vi IMproved 7.4
+"
+
+
+set nocompatible              " be iMproved, required
+"filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 :set number
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
 
 set shell=/bin/bash
 
@@ -17,7 +25,7 @@ set omnifunc=syntaxcomplete#Complete
 let python_highlight_all = 1
 
 "--------------------------------------"
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -28,7 +36,7 @@ let g:ctrlp_working_path_mode = 'ra'
 "--------------------------------------"
 
 "--------------------------------------"
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " It provides statuslines and prompts for several other applications, including
 " zsh, bash, tmux, IPython, Awesome and Qtile
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
@@ -36,7 +44,7 @@ set laststatus=2
 "--------------------------------------"
 
 "--------------------------------------"
-Bundle 'klen/python-mode'
+Plugin 'klen/python-mode'
 augroup vimrc_autocmds
     autocmd!
    " highlight characters past column 120
@@ -61,28 +69,28 @@ let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " Git wrapper 
 
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 " Directory tree
 map <F2> :NERDTreeToggle<CR>
-autocmd VimEnter * NERDTree " It tells vim that you want to setup a command to run when vim starts
-autocmd VimEnter * wincmd p " It will move the cursor into the main window
+"autocmd VimEnter * NERDTree " It tells vim that you want to setup a command to run when vim starts
+"autocmd VimEnter wincmd p " It will move the cursor into the main window
 
-Bundle 'jelera/vim-javascript-syntax'
+Plugin 'jelera/vim-javascript-syntax'
 
-Bundle 'moll/vim-node'
+Plugin 'moll/vim-node'
 " Tools to make Vim superb for developing with Node.js
 
-Bundle 'Raimondi/delimitMate'
+Plugin 'Raimondi/delimitMate'
 " Automatically close tags, quotes etc
 let delimitMate_expand_cr=1
 
 " Add additional match pairs
 set matchpairs+=<:>
 
-"Bundle 'burnettk/vim-angular'
+"Plugin 'burnettk/vim-angular'
 
 if v:version > 702
     " Syntax Highlighter
@@ -99,71 +107,67 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-"Bundle 'Valloric/YouCompleteMe'
-"let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+Plugin 'marijnh/tern_for_vim'
 
-Bundle 'marijnh/tern_for_vim'
+Plugin 'hail2u/vim-css3-syntax'
 
-Bundle 'hail2u/vim-css3-syntax'
-
-Bundle 'Valloric/MatchTagAlways'
+Plugin 'Valloric/MatchTagAlways'
 
 :inoremap <lt>/ </<C-X><C-O>
 :imap <C-Space> <C-X><C-O>
 
-"Bundle 'mattn/emmet-vim'
+"Plugin 'mattn/emmet-vim'
 "let g:user_emmet_leader_key='<c-e>'
 
-Bundle 'othree/html5.vim'
+Plugin 'othree/html5.vim'
 let g:html5_event_handler_attributes_complete = 0
 let g:html5_rdfa_attributes_complete = 0
 let g:html5_microdata_attributes_complete = 0
 let g:html5_aria_attributes_complete = 0
 
-Bundle 'groenewege/vim-less'
+Plugin 'groenewege/vim-less'
 
-Bundle 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/AutoComplPop'
 
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 "YouCompleteMe and UltiSnips compatibility, with the helper of supertab
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
-Bundle 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
 
-Bundle 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>""
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
-Bundle 'honza/vim-snippets'
+Plugin 'honza/vim-snippets'
 
-if has('signs')
-    Bundle "airblade/vim-gitgutter"
-    let g:gitgutter_escape_grep = 1   " Use raw grep
-    let g:gitgutter_eager = 0         " Don't run eagerly
-endif
+"if has('signs')
+Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_escape_grep = 1   " Use raw grep
+let g:gitgutter_eager = 0         " Don't run eagerly
+"endif
 
-Bundle 'osyo-manga/vim-brightest'
+Plugin 'osyo-manga/vim-brightest'
 " Highlight current word
 
 
-Bundle 'sudar/comments.vim'
+Plugin 'sudar/comments.vim'
 " Bulk (Un)Comment line.
 " Ctrl-c - to comment a single line or visual block
 " Ctrl-x - to un-comment a single line or visual block
 
-Bundle 'ntpeters/vim-better-whitespace'
+Plugin 'ntpeters/vim-better-whitespace'
 
-Bundle 'Chiel92/vim-autoformat'
+Plugin 'Chiel92/vim-autoformat'
 " Auto format code in VIM
 noremap <F3> :Autoformat<CR>
 
 " use ,w ,b ,e to navigate CamelCase and underscore identifiers
-Bundle 'bkad/CamelCaseMotion'
+Plugin 'bkad/CamelCaseMotion'
 map <silent> b <Plug>CamelCaseMotion_w
 map <silent> w <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
@@ -172,16 +176,16 @@ sunmap b
 sunmap e
 
 " Programmer Color scheme
-Bundle 'pw'
+Plugin 'pw'
 "
 " " Light ColorScheme
-Bundle 'lightdiff'
+Plugin 'lightdiff'
 "
 " " 256 color schemes
-Bundle 'Eddie.vim'
-Bundle 'desert256.vim'
-Bundle 'ciaranm/inkpot'
-Bundle '256-grayvim'
+Plugin 'Eddie.vim'
+Plugin 'desert256.vim'
+Plugin 'ciaranm/inkpot'
+Plugin '256-grayvim'
 
 set tabstop=4     " Width of a tab is 4
 set shiftwidth=4  " number of spaces to use for auto indenting
@@ -234,6 +238,10 @@ set incsearch     " show search matches as you type
 "to stop indenting when pasting with the mouse
 set pastetoggle=<f5>
 
+
+call vundle#end()            " required
+"filetype plugin indent on    " required
+"
 filetype indent on
 
 " enable syntax highlighting by forcing reloading of the filetype
